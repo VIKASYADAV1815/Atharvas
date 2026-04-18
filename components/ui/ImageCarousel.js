@@ -20,17 +20,17 @@ const ImageCarousel = ({ images, alt = 'Image' }) => {
   };
 
   return (
-    <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden group">
+    <div className="relative w-full h-[350px] md:h-[450px] rounded-xl overflow-hidden group bg-gray-100">
       <AnimatePresence mode="wait">
         <motion.img
           key={currentIndex}
           src={images[currentIndex]}
           alt={`${alt} ${currentIndex + 1}`}
-          initial={{ opacity: 0, scale: 1.1 }}
+          initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.9 }}
+          exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.5 }}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain md:object-cover"
         />
       </AnimatePresence>
 

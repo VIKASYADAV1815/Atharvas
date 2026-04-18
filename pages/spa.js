@@ -201,7 +201,8 @@ const Spa = () => {
                   </div>
 
                   {/* Pricing & Booking */}
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-end">
+                    {/* 
                     <div>
                       <div className="text-3xl font-bold text-primary-600 mb-1">
                         {service.price}
@@ -210,6 +211,7 @@ const Spa = () => {
                         per treatment
                       </div>
                     </div>
+                    */}
                     
                     <motion.button
                       whileHover={{ scale: 1.05 }}

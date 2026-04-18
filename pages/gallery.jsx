@@ -1,5 +1,14 @@
 "use client";
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import VideoGallery from "@/components/ui/VideoGallery";
+
 import img1 from "@/public/images/gallery/1.jpeg";
 import img2 from "@/public/images/gallery/2.jpeg";
 import img3 from "@/public/images/gallery/3.jpeg";
@@ -47,11 +56,57 @@ const images = [
   img39, img40, img41, img42, img43, img44, img45, img46, img47
 ];
 
+const row1 = images.slice(0, 13);
+const row2 = images.slice(13, 26);
+const row3 = images.slice(26);
+
 const videos = [
   { src: "/videos/video1.mp4" },
   { src: "/videos/video2.mp4" },
   { src: "/videos/video3.mp4" },
 ];
+
+const MarqueeRow = ({ items, direction = "left", speed = 40, openLightbox }) => {
+  return (
+    <div className="flex w-full overflow-hidden py-4">
+      <motion.div
+        className="flex space-x-4 px-2 w-max"
+        animate={{
+          x: direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"],
+        }}
+        transition={{
+          repeat: Infinity,
+          ease: "linear",
+          duration: speed,
+        }}
+      >
+        {[...items, ...items].map((img, index) => (
+          <motion.div
+            key={index}
+            className="relative w-[200px] sm:w-[280px] md:w-[320px] h-[280px] sm:h-[380px] rounded-2xl overflow-hidden shadow-lg cursor-pointer group shrink-0"
+            whileHover={{ scale: 1.03, zIndex: 10 }}
+            onClick={() => {
+              // find actual index in main images array to open lightbox
+              const actualIndex = images.findIndex((i) => i === img);
+              if (actualIndex !== -1) openLightbox(actualIndex);
+            }}
+          >
+            <img
+              src={img.src ? img.src : img}
+              alt={`Gallery image`}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span className="text-white font-medium bg-white/20 px-6 py-3 rounded-full backdrop-blur-md shadow-xl border border-white/30">
+                View Full Size
+              </span>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
+  );
+};
 
 const Gallery = () => {
   const [lightboxIndex, setLightboxIndex] = useState(null);
@@ -64,96 +119,119 @@ const Gallery = () => {
     setLightboxIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-[#fcfaf8] min-h-screen pb-20">
       {/* ================= Hero Section ================= */}
-      <section
-        className="relative flex items-center justify-center h-[80vh] bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${bg.src})`,
-        }}
-      >
-        <div className="bg-black bg-opacity-50 p-8 rounded text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white">
-            Welcome to Our Gallery
-          </h1>
-          <p className="text-white mt-4 text-lg md:text-2xl">
-            Explore our collection of amazing photos and videos
-          </p>
+      <section className="relative h-[60vh] sm:h-[80vh] flex items-center justify-center overflow-hidden">
+        <motion.div 
+          className="absolute inset-0 w-full h-full"
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5 }}
+        >
+          <img
+            src={bg.src}
+            alt="Gallery Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#fcfaf8]" />
+        </motion.div>
+        
+        <div className="relative z-10 text-center px-4">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full text-sm font-medium mb-6 uppercase tracking-widest"
+          >
+            Our Portfolio
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-5xl md:text-7xl font-playfair font-bold text-white mb-4"
+          >
+            A Visual Journey
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto font-light"
+          >
+            Immerse yourself in the beauty, luxury, and tranquility of The Atharva's Retreat
+          </motion.p>
         </div>
       </section>
 
       {/* ================= Photo Gallery ================= */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Photo Gallery</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {images.map((img, index) => (
-            <div
-              key={index}
-              className="overflow-hidden rounded-xl shadow-lg bg-white aspect-[3/4] cursor-pointer"
-              onClick={() => openLightbox(index)}
-            >
-              <img
-                src={img.src ? img.src : img}
-                alt={`Gallery ${index + 1}`}
-                className="w-full h-full object-cover transform hover:scale-105 transition duration-300"
-              />
-            </div>
-          ))}
+      <section className="py-20 overflow-hidden">
+        <div className="text-center mb-12 px-4">
+          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-gray-800 mb-4">Captivating Moments</h2>
+          <p className="text-gray-500 max-w-2xl mx-auto text-lg">Experience the essence of our resort through these curated memories</p>
+        </div>
+
+        <div className="flex flex-col space-y-2">
+          <MarqueeRow items={row1} direction="left" speed={45} openLightbox={openLightbox} />
+          <MarqueeRow items={row2} direction="right" speed={55} openLightbox={openLightbox} />
+          <MarqueeRow items={row3} direction="left" speed={50} openLightbox={openLightbox} />
         </div>
       </section>
-
-      {/* ================= Lightbox ================= */}
-      {lightboxIndex !== null && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
-          <button
-            onClick={closeLightbox}
-            className="absolute top-6 right-6 text-white text-3xl font-bold hover:opacity-70"
-          >
-            &times;
-          </button>
-
-          <button
-            onClick={prevImage}
-            className="absolute left-4 md:left-10 text-white text-4xl font-bold hover:opacity-70"
-          >
-            &#10094;
-          </button>
-
-          <img
-            src={images[lightboxIndex].src}
-            alt="Full size"
-            className="max-h-[90vh] max-w-[90vw] rounded-lg shadow-lg object-contain"
-          />
-
-          <button
-            onClick={nextImage}
-            className="absolute right-4 md:right-10 text-white text-4xl font-bold hover:opacity-70"
-          >
-            &#10095;
-          </button>
-        </div>
-      )}
 
       {/* ================= Video Gallery ================= */}
-      <section className="max-w-6xl mx-auto px-6 py-16 border-t border-gray-300">
-        <h2 className="text-3xl font-bold text-center mb-12">Video Gallery</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {videos.map((video, index) => (
-            <div
-              key={index}
-              className="overflow-hidden rounded-xl shadow-lg bg-white aspect-[3/4]"
+      <VideoGallery />
+
+      {/* ================= Lightbox ================= */}
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/95 backdrop-blur-xl flex items-center justify-center z-50"
+          >
+            <button
+              onClick={closeLightbox}
+              className="absolute top-6 right-6 text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50"
             >
-              <video
-                src={video.src}
-                className="w-full h-full object-cover"
-                controls
-                playsInline
-                preload="metadata"
+              <X size={32} />
+            </button>
+
+            <button
+              onClick={prevImage}
+              className="absolute left-4 md:left-10 text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50"
+            >
+              <ChevronLeft size={36} />
+            </button>
+
+            <motion.div
+              key={lightboxIndex}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="relative w-full h-full flex items-center justify-center p-4 md:p-12"
+            >
+              <img
+                src={images[lightboxIndex].src ? images[lightboxIndex].src : images[lightboxIndex]}
+                alt="Full size gallery view"
+                className="max-h-full max-w-full rounded-xl shadow-2xl object-contain border border-white/10"
               />
-            </div>
-          ))}
-        </div>
-      </section>
+              
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-md px-6 py-2 rounded-full border border-white/20 text-white/80 font-medium">
+                {lightboxIndex + 1} / {images.length}
+              </div>
+            </motion.div>
+
+            <button
+              onClick={nextImage}
+              className="absolute right-4 md:right-10 text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50"
+            >
+              <ChevronRight size={36} />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

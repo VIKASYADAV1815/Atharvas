@@ -109,18 +109,18 @@ const Home = () => {
 
   const roomHighlights = [
     {
-      title: "Elite Retreat",
-      subtitle: "Mountain View Luxury",
+      title: "Glass Cottage Retreat",
+      subtitle: "Nature & Greenery View",
       description:
-        "Sophisticated comfort with panoramic mountain vistas and premium amenities",
+        "Immerse yourself in nature with our beautifully designed Glass Cottage, a perfect blend of luxury and serenity.",
       image:
-        "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?w=500&h=400&fit=crop",
-      price: "₹3000",
+        "/images/gallery/31.jpeg",
+      price: "₹2999",
       features: [
         "King Size Bed",
-        "Mountain View",
-        "Marble Bathroom",
+        "Nature View",
         "Private Balcony",
+        "Fresh Air",
       ],
     },
     {
@@ -539,11 +539,13 @@ const Home = () => {
                     alt={room.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
+                  {/* Price Hidden 
                   <div className="absolute top-4 right-4 bg-green-50 border border-green-400 text-green-600 backdrop-blur-sm px-4 py-2 rounded-full">
                     <span className="font-semibold ">
                       <span className="text-green-700">From</span> {room.price}
                     </span>
                   </div>
+                  */}
                 </div>
                 <div className="p-6 sm:p-8">
                   <div className="mb-4">
@@ -666,9 +668,11 @@ const Home = () => {
                       </p>
                     </div>
                     <div className="text-right ml-4 flex-shrink-0">
+                      {/* Price hidden 
                       <div className="font-bold text-green-600 text-sm sm:text-base">
                         {treatment.price}
                       </div>
+                      */}
                       <div className="text-xs text-gray-500">
                         {treatment.duration}
                       </div>

@@ -6,10 +6,12 @@ import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sparkles } from "lucide-react";
 import logo from "../../public/images/logo.png";
+import BookingModal from "../ui/BookingModal";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [bookingModal, setBookingModal] = useState({ isOpen: false, title: "", type: "" });
   const router = useRouter();
 
   useEffect(() => {
@@ -80,14 +82,14 @@ const Header = () => {
               </Link>
             ))}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                href="/contact"
+              <button
+                onClick={() => setBookingModal({ isOpen: true, title: "Your Stay", type: "room" })}
                 className={`${
                   scrolled ? "bg-[#0a1e03]" : "btn-primary"
-                }  text-white text-sm lg:text-base px-4 lg:px-6 py-2 lg:py-3`}
+                }  text-white text-sm lg:text-base px-4 lg:px-6 py-2 lg:py-3 rounded-lg`}
               >
                 Book Now
-              </Link>
+              </button>
             </motion.div>
           </div>
 
@@ -140,21 +142,30 @@ const Header = () => {
                   transition={{ delay: navigation.length * 0.1 }}
                   className="pt-4"
                 >
-                  <Link
-                    href="/contact"
-                    onClick={() => setIsOpen(false)}
+                  <button
+                    onClick={() => {
+                      setIsOpen(false);
+                      setBookingModal({ isOpen: true, title: "Your Stay", type: "room" });
+                    }}
                     className={`${
-                      scrolled ? "btn-primary" : "bg-green-900"
-                    } w-full text-center block`}
+                      scrolled ? "btn-primary" : "bg-green-900 text-white"
+                    } w-full text-center block py-3 rounded-lg font-medium`}
                   >
                     Book Now
-                  </Link>
+                  </button>
                 </motion.div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </nav>
+
+      <BookingModal
+        isOpen={bookingModal.isOpen}
+        onClose={() => setBookingModal({ isOpen: false, title: "", type: "" })}
+        title={bookingModal.title}
+        type={bookingModal.type}
+      />
     </motion.header>
   );
 };

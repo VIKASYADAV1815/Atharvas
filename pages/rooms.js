@@ -13,22 +13,28 @@ const Rooms = () => {
   const rooms = [
     {
       id: 1,
-      title: 'Elite Retreat',
+      title: 'Glass Cottage Retreat',
       category: 'luxury',
-      description: 'Experience refined luxury in our Elite Retreat rooms, featuring elegant furnishings, premium amenities, and stunning mountain views. Each room is thoughtfully designed with contemporary comfort and timeless sophistication, offering a perfect sanctuary for relaxation and rejuvenation.',
-      features: ['Mountain View', 'King Size Bed', 'Marble Bathroom', 'Private Balcony', 'Premium Linens', 'Mini Bar'],
+      description: 'Immerse yourself in nature with our beautifully designed Glass Cottage, a perfect blend of luxury and serenity. Surrounded by lush greenery, fresh mountain air, and the soothing presence of natural water, this retreat offers a truly refreshing escape from everyday life. Experience the pure essence of living close to nature—where every moment feels rejuvenating and alive.',
+      features: ['Stay for 2 adults & 2 children', 'King size bed', 'Private balcony', 'Surrounded by greenery', 'Fresh air & natural water ambiance', 'Peaceful, nature-rich environment'],
       amenities: [
-        { icon: Users, text: 'Up to 2 guests' },
+        { icon: Users, text: '2 Adults & 2 Children' },
         { icon: Bed, text: 'King size bed' },
-        { icon: Bath, text: 'Marble bathroom' },
-        { icon: Mountain, text: 'Mountain view' },
+        { icon: Mountain, text: 'Nature & Greenery view' },
+        { icon: Bath, text: 'Premium bathroom' },
         { icon: Wifi, text: 'Free WiFi' },
         { icon: Coffee, text: 'Coffee maker' }
       ],
       images: [
-        'https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?w=800&h=600&fit=crop'
+        '/images/gallery/31.jpeg',
+        '/images/gallery/5.jpeg',
+        '/images/gallery/2.jpeg',
+        '/images/gallery/11.jpeg',
+        '/images/gallery/16.jpeg',
+        '/images/gallery/22.jpeg',
+        '/images/gallery/25.jpeg',
+        '/images/gallery/26.jpeg',
+        '/images/gallery/28.jpeg'
       ],
       price: '2999',
       priceNote: 'per night'
@@ -173,7 +179,8 @@ const Rooms = () => {
                   </div>
 
                   {/* Pricing & Booking */}
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-end">
+                    {/*
                     <div>
                       <div className="text-3xl font-bold text-green-600 mb-1">
                         <span className='text-green-700'>₹</span>{room.price}
@@ -182,6 +189,7 @@ const Rooms = () => {
                         {room.priceNote}
                       </div>
                     </div>
+                    */}
                     
                     <motion.button
                       whileHover={{ scale: 1.05 }}
