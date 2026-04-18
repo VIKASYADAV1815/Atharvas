@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -7,7 +7,6 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-// Add enough videos so swiper can loop symmetrically
 const originalVideos = [
   { src: "/videos/video1.mp4" },
   { src: "/videos/video2.mp4" },
@@ -33,7 +32,6 @@ const VideoGallery = () => {
         <p className="text-gray-500 max-w-2xl mx-auto text-lg">Watch the magic unfold in motion</p>
       </div>
 
-      {/* Add a wrapper with masking for fade effect on left/right */}
       <div 
         className="max-w-[1400px] mx-auto relative"
         style={{ WebkitMaskImage: "linear-gradient(to right, transparent, black 1%, black 99%, transparent)", maskImage: "linear-gradient(to right, transparent, black 1%, black 99%, transparent)" }}
@@ -58,8 +56,8 @@ const VideoGallery = () => {
             disableOnInteraction: false,
           }}
           navigation={{
-            prevEl: '.video-prev',
-            nextEl: '.video-next',
+            prevEl: ".video-prev",
+            nextEl: ".video-next",
           }}
           modules={[EffectCoverflow, Navigation, Autoplay]}
           className="w-full pb-16 pt-8 px-4"
@@ -86,7 +84,6 @@ const VideoGallery = () => {
         </Swiper>
       </div>
 
-      {/* Custom Navigation Arrows below the gallery */}
       <div className="flex items-center justify-center gap-6 mt-4">
         <button className="video-prev w-14 h-14 rounded-full border-2 border-gray-800 flex items-center justify-center hover:bg-gray-800 hover:text-white transition-all z-10">
           <ArrowLeft size={24} />
