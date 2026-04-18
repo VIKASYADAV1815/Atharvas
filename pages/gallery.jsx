@@ -1,13 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import VideoGallery from "@/components/ui/VideoGallery";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 
 import img1 from "@/public/images/gallery/1.jpeg";
 import img2 from "@/public/images/gallery/2.jpeg";
@@ -60,11 +56,12 @@ const row1 = images.slice(0, 13);
 const row2 = images.slice(13, 26);
 const row3 = images.slice(26);
 
-const videos = [
-  { src: "/videos/video1.mp4" },
-  { src: "/videos/video2.mp4" },
-  { src: "/videos/video3.mp4" },
-];
+const VideoGallery = dynamic(
+  () => import("@/components/ui/VideoGallery"),
+  {
+    ssr: false,
+  }
+);
 
 const MarqueeRow = ({ items, direction = "left", speed = 40, openLightbox }) => {
   return (
@@ -91,10 +88,13 @@ const MarqueeRow = ({ items, direction = "left", speed = 40, openLightbox }) => 
               if (actualIndex !== -1) openLightbox(actualIndex);
             }}
           >
-            <img
-              src={img.src ? img.src : img}
+            <Image
+              src={img}
               alt={`Gallery image`}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              fill
+              sizes="(max-width: 640px) 200px, (max-width: 768px) 280px, 320px"
+              placeholder="blur"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
               <span className="text-white font-medium bg-white/20 px-6 py-3 rounded-full backdrop-blur-md shadow-xl border border-white/30">
@@ -128,10 +128,13 @@ const Gallery = () => {
           animate={{ scale: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <img
-            src={bg.src}
+          <Image
+            src={bg}
             alt="Gallery Background"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            placeholder="blur"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#fcfaf8]" />
         </motion.div>
@@ -212,11 +215,15 @@ const Gallery = () => {
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className="relative w-full h-full flex items-center justify-center p-4 md:p-12"
             >
-              <img
-                src={images[lightboxIndex].src ? images[lightboxIndex].src : images[lightboxIndex]}
-                alt="Full size gallery view"
-                className="max-h-full max-w-full rounded-xl shadow-2xl object-contain border border-white/10"
-              />
+              <div className="relative w-full h-full max-w-5xl max-h-[90vh]">
+                <Image
+                  src={images[lightboxIndex]}
+                  alt="Full size gallery view"
+                  fill
+                  sizes="100vw"
+                  className="object-contain rounded-xl shadow-2xl border border-white/10"
+                />
+              </div>
               
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-md px-6 py-2 rounded-full border border-white/20 text-white/80 font-medium">
                 {lightboxIndex + 1} / {images.length}
