@@ -79,7 +79,7 @@ const About = () => {
 
   const team = [
     {
-      name: "Athrav",
+      name: "Atharva",
       role: "Founder",
       image: img1,
       bio: "The founder of The Atharva’s, a real estate visionary with a successful track record of hundreds of properties and extensive land banks, leveraged his global travels and personal experience as a luxury resort guest to create Atharva. He meticulously incorporated every detail of customer comfort and demand.Nestled beside Raja National Park, a protected sanctuary for tigers, elephants, and diverse birdlife, Atharva offers a unique blend of natural serenity and village charm, with its design deeply rooted in the surrounding landscape and local culture.",
