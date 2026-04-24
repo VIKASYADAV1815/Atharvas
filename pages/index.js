@@ -109,7 +109,7 @@ const Home = () => {
 
   const roomHighlights = [
     {
-      title: "Glass Cottage Retreat",
+      title: "Conifer Grande",
       subtitle: "Nature & Greenery View",
       description:
         "Immerse yourself in nature with our beautifully designed Glass Cottage, a perfect blend of luxury and serenity.",
@@ -124,33 +124,48 @@ const Home = () => {
       ],
     },
     {
-      title: "Royal Premium",
-      subtitle: "Elevated Experience",
+      title: "Bryophyta Trails",
+      subtitle: "Private Pool Villa",
       description:
-        "Spacious suites with separate living areas and personalized butler service",
+        "Discover a world where the only soundtrack is the rustle of leaves and the gentle ripple of water. Tucked away from the relentless pulse of the city.",
       image:
         "https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?w=500&h=400&fit=crop",
-      price: "₹4000",
+      price: "₹3999",
       features: [
-        "Separate Living Area",
-        "Butler Service",
-        "Premium Bathroom",
-        "Private Terrace",
+        "Total Seclusion",
+        "Private Oasis",
+        "Nature-Centric Design",
+        "Forest Views",
       ],
     },
     {
-      title: "Platinum Signature Suite",
-      subtitle: "Ultimate Luxury",
+      title: "Tracheophyte Oasis",
+      subtitle: "2-BHK Forest Villa",
       description:
-        "Expansive suites with 360° views and dedicated concierge service",
+        "Experience the perfect harmony of modern comfort and wild, untamed beauty. Designed for families or small groups who crave the luxury of space.",
       image:
         "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?w=500&h=400&fit=crop",
-      price: "₹6000",
+      price: "₹4999",
       features: [
-        "360° Views",
-        "Master Bedroom",
-        "Spa Bathroom",
-        "Personal Concierge",
+        "Fully-Equipped Kitchenette",
+        "Sustainable Luxury",
+        "Nature's Soundtrack",
+        "Private Kitchen",
+      ],
+    },
+    {
+      title: "Casa Magnoliophyta",
+      subtitle: "Serene Sanctuary",
+      description:
+        "A beautiful sanctuary blending nature with modern amenities. Perfect for couples or solo travelers looking to unwind in a serene environment.",
+      image:
+        "https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?w=500&h=400&fit=crop",
+      price: "₹2999",
+      features: [
+        "Cozy Ambiance",
+        "Natural Light",
+        "Private Deck",
+        "Garden Views",
       ],
     },
   ];

@@ -41,50 +41,28 @@ const Rooms = () => {
     },
     {
       id: 2,
-      title: 'Royal Premium',
+      title: 'Bryophyta Trails',
       category: 'premium',
-      description: 'Indulge in elevated comfort with our Royal Premium suites, featuring spacious layouts, luxurious amenities, and panoramic views. These suites combine modern elegance with personalized service, creating an unforgettable experience for discerning travelers seeking sophistication and style.',
-      features: ['Panoramic Views', 'Separate Living Area', 'Premium Bathroom', 'Private Terrace', 'Butler Service', 'Champagne Welcome'],
+      description: 'Discover a world where the only soundtrack is the rustle of leaves and the gentle ripple of water. Tucked away from the relentless pulse of the city, our Private Pool Villa offers a masterclass in secluded luxury.',
+      features: ['Total Seclusion', 'The Private Oasis', 'Nature-Centric Design', 'Views of protected forest land'],
       amenities: [
-        { icon: Users, text: 'Up to 3 guests' },
-        { icon: Bed, text: 'King bed + sofa' },  
+        { icon: Users, text: '2 Adults & 1 Child' },
+        { icon: Bed, text: 'King size bed' },  
+        { icon: Wifi, text: 'Free WiFi' },
+        { icon: Coffee, text: 'Coffee maker' },
         { icon: Bath, text: 'Premium bathroom' },
-        { icon: Mountain, text: 'Panoramic view' },
-        { icon: Wifi, text: 'Free WiFi' }, 
-        { icon: Heart, text: 'Butler service' }
+        { icon: Mountain, text: 'Forest views' }
       ],
       images: [
         'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?w=800&h=600&fit=crop',
         'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?w=800&h=600&fit=crop',
         'https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?w=800&h=600&fit=crop'
       ],
-      price: '4999',
+      price: '3999',
       priceNote: 'per night'
     },
     {
       id: 3,
-      title: 'Platinum Signature Suite',
-      category: 'platinum',
-      description: 'Experience the pinnacle of luxury in our Platinum Signature Suites, featuring expansive living spaces, world-class amenities, and unparalleled views. These exclusive suites offer the ultimate in comfort and privacy, with personalized concierge service and bespoke touches throughout your stay.',
-      features: ['360° Mountain Views', 'Master Bedroom + Living Room', 'Spa Bathroom', 'Private Deck', 'Personal Concierge', '24/7 Room Service'],
-      amenities: [
-        { icon: Users, text: 'Up to 4 guests' },
-        { icon: Bed, text: 'Master bedroom' },
-        { icon: Bath, text: 'Spa bathroom' },
-        { icon: Mountain, text: '360° views' },
-        { icon: Car, text: 'Valet parking' },
-        { icon: Heart, text: 'Concierge service' }
-      ],
-      images: [
-        'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?w=800&h=600&fit=crop'
-      ],
-      price: '5999',
-      priceNote: 'per night'
-    },
-    {
-      id: 4,
       title: 'Tracheophyte Oasis',
       category: 'platinum',
       description: 'Experience the perfect harmony of modern comfort and wild, untamed beauty. Our 2-BHK Forest Villa is designed for families or small groups who crave the luxury of space without sacrificing the intimacy of nature. Located at the edge of the resort where the deep woods begin, this villa is your private gateway to the wilderness.',
@@ -106,7 +84,7 @@ const Rooms = () => {
       priceNote: 'per night'
     },
     {
-      id: 5,
+      id: 4,
       title: 'Casa Magnoliophyta',
       category: 'premium',
       description: 'A beautiful sanctuary blending nature with modern amenities. Perfect for couples or solo travelers looking to unwind in a serene environment.',
@@ -125,28 +103,6 @@ const Rooms = () => {
         'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?w=800&h=600&fit=crop'
       ],
       price: '2999',
-      priceNote: 'per night'
-    },
-    {
-      id: 6,
-      title: 'Bryophyta Trails',
-      category: 'premium',
-      description: 'Discover a world where the only soundtrack is the rustle of leaves and the gentle ripple of water. Tucked away from the relentless pulse of the city, our Private Pool Villa offers a masterclass in secluded luxury.',
-      features: ['Total Seclusion', 'The Private Oasis', 'Nature-Centric Design', 'Views of protected forest land'],
-      amenities: [
-        { icon: Users, text: '2 Adults & 1 Child' },
-        { icon: Bed, text: 'King size bed' },  
-        { icon: Wifi, text: 'Free WiFi' },
-        { icon: Coffee, text: 'Coffee maker' },
-        { icon: Bath, text: 'Premium bathroom' },
-        { icon: Mountain, text: 'Forest views' }
-      ],
-      images: [
-        'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?w=800&h=600&fit=crop',
-        'https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?w=800&h=600&fit=crop'
-      ],
-      price: '3999',
       priceNote: 'per night'
     }
   ];
