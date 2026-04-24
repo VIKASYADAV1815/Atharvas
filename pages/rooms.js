@@ -13,7 +13,7 @@ const Rooms = () => {
   const rooms = [
     {
       id: 1,
-      title: 'Glass Cottage Retreat',
+      title: 'Conifer Grande',
       category: 'luxury',
       description: 'Immerse yourself in nature with our beautifully designed Glass Cottage, a perfect blend of luxury and serenity. Surrounded by lush greenery, fresh mountain air, and the soothing presence of natural water, this retreat offers a truly refreshing escape from everyday life. Experience the pure essence of living close to nature—where every moment feels rejuvenating and alive.',
       features: ['Stay for 2 adults & 2 children', 'King size bed', 'Private balcony', 'Surrounded by greenery', 'Fresh air & natural water ambiance', 'Peaceful, nature-rich environment'],
@@ -81,6 +81,72 @@ const Rooms = () => {
         'https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?w=800&h=600&fit=crop'
       ],
       price: '5999',
+      priceNote: 'per night'
+    },
+    {
+      id: 4,
+      title: 'Tracheophyte Oasis',
+      category: 'platinum',
+      description: 'Experience the perfect harmony of modern comfort and wild, untamed beauty. Our 2-BHK Forest Villa is designed for families or small groups who crave the luxury of space without sacrificing the intimacy of nature. Located at the edge of the resort where the deep woods begin, this villa is your private gateway to the wilderness.',
+      features: ['Fully-Equipped Kitchenette', 'Sustainable Luxury', 'Nature’s Soundtrack', 'Private Kitchen'],
+      amenities: [
+        { icon: Users, text: 'Family / Small Group' },
+        { icon: Bed, text: 'Two Master Bedrooms' },
+        { icon: Wifi, text: 'Free WiFi' },
+        { icon: Mountain, text: 'Private balcony' },
+        { icon: Bath, text: 'Premium bathroom' },
+        { icon: Coffee, text: 'Kitchenette' }
+      ],
+      images: [
+        'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1454806/pexels-photo-1454806.jpeg?w=800&h=600&fit=crop'
+      ],
+      price: '4999',
+      priceNote: 'per night'
+    },
+    {
+      id: 5,
+      title: 'Casa Magnoliophyta',
+      category: 'premium',
+      description: 'A beautiful sanctuary blending nature with modern amenities. Perfect for couples or solo travelers looking to unwind in a serene environment.',
+      features: ['Cozy Ambiance', 'Natural Light', 'Private Deck', 'Garden Views'],
+      amenities: [
+        { icon: Users, text: 'Up to 2 guests' },
+        { icon: Bed, text: 'King bed' },
+        { icon: Bath, text: 'Premium bathroom' },
+        { icon: Wifi, text: 'Free WiFi' },
+        { icon: Coffee, text: 'Coffee maker' },
+        { icon: Mountain, text: 'Nature view' }
+      ],
+      images: [
+        'https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?w=800&h=600&fit=crop'
+      ],
+      price: '2999',
+      priceNote: 'per night'
+    },
+    {
+      id: 6,
+      title: 'Bryophyta Trails',
+      category: 'premium',
+      description: 'Discover a world where the only soundtrack is the rustle of leaves and the gentle ripple of water. Tucked away from the relentless pulse of the city, our Private Pool Villa offers a masterclass in secluded luxury.',
+      features: ['Total Seclusion', 'The Private Oasis', 'Nature-Centric Design', 'Views of protected forest land'],
+      amenities: [
+        { icon: Users, text: '2 Adults & 1 Child' },
+        { icon: Bed, text: 'King size bed' },  
+        { icon: Wifi, text: 'Free WiFi' },
+        { icon: Coffee, text: 'Coffee maker' },
+        { icon: Bath, text: 'Premium bathroom' },
+        { icon: Mountain, text: 'Forest views' }
+      ],
+      images: [
+        'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?w=800&h=600&fit=crop',
+        'https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?w=800&h=600&fit=crop'
+      ],
+      price: '3999',
       priceNote: 'per night'
     }
   ];
