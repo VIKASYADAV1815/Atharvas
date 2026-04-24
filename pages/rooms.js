@@ -87,14 +87,14 @@ const Rooms = () => {
       id: 4,
       title: 'Casa Magnoliophyta',
       category: 'premium',
-      description: 'A beautiful sanctuary blending nature with modern amenities. Perfect for couples or solo travelers looking to unwind in a serene environment.',
-      features: ['Cozy Ambiance', 'Natural Light', 'Private Deck', 'Garden Views'],
+      description: 'Designed for the minimalist traveler who refuses to compromise on luxury, our One-Room Forest Cottage is a masterclass in "cozy grandeur." This standalone sanctuary offers the perfect proportions for a romantic getaway or a solo meditative retreat, wrapped in the silent embrace of the woods.',
+      features: ['Pollution free stay', 'Clean Environment', 'Close to nature', 'Away from city chaos'],
       amenities: [
-        { icon: Users, text: 'Up to 2 guests' },
-        { icon: Bed, text: 'King bed' },
-        { icon: Bath, text: 'Premium bathroom' },
+        { icon: Users, text: '2 Adults & 1 Child' },
+        { icon: Bed, text: 'King size bed' },
         { icon: Wifi, text: 'Free WiFi' },
         { icon: Coffee, text: 'Coffee maker' },
+        { icon: Bath, text: 'Premium bathroom' },
         { icon: Mountain, text: 'Nature view' }
       ],
       images: [

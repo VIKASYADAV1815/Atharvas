@@ -155,17 +155,17 @@ const Home = () => {
     },
     {
       title: "Casa Magnoliophyta",
-      subtitle: "Serene Sanctuary",
+      subtitle: "One-Room Forest Cottage",
       description:
-        "A beautiful sanctuary blending nature with modern amenities. Perfect for couples or solo travelers looking to unwind in a serene environment.",
+        "Designed for the minimalist traveler who refuses to compromise on luxury, our One-Room Forest Cottage is a masterclass in 'cozy grandeur.'",
       image:
         "https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?w=500&h=400&fit=crop",
       price: "₹2999",
       features: [
-        "Cozy Ambiance",
-        "Natural Light",
-        "Private Deck",
-        "Garden Views",
+        "Pollution free stay",
+        "Clean Environment",
+        "Close to nature",
+        "Away from city chaos",
       ],
     },
   ];
